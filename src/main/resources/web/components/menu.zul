@@ -6,7 +6,7 @@
         <textbox type="text" sclass="search" placeholder="Szukaj filmów, seriali, gier, postaci i światów"></textbox>
         </div>
         <menubar sclass="menu">
-            <menuitem label="FILMY" onClick="alert(self.label)" />
+            <menuitem label="FILMY" href="/z/movies" />
             <menuitem label="SERIALE" onClick="alert(self.label)" />
             <menuitem label="GRY" onClick="alert(self.label)" />
             <menuitem label="RANKINGI" onClick="alert(self.label)" />
