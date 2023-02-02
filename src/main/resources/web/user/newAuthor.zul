@@ -84,6 +84,6 @@
 
         <!-- -->
         <a href="/" label="Start page"/>
-        <a href="/z/user/listAuthors" label="List of all authors"/>
+        <a href="/z/movies" label="Lista filmów"/>
     </vlayout>
 </zk>

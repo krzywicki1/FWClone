@@ -19,16 +19,16 @@
                   model="@load(vm.movies) @template('t1')">
                 <columns>
                     <column width="4rem" label="Id" align="center"/>
-                    <column width="min" label="Name." align="center"/>
-                    <column width="min" label="Production" align="center"/>
-                    <column width="min" label="Director" align="center"/>
-                    <column width="min" label="Budget" align="center"/>
+                    <column width="min" label="Nazwa" align="center"/>
+                    <column width="min" label="Data produkcji" align="center"/>
+                    <column width="min" label="Reżyser" align="center"/>
+                    <column width="min" label="Budżet" align="center"/>
                     <column width="min" label="Boxoffice" align="center"/>
-                    <column width="min" label="Score" align="center"/>
+                    <column width="min" label="Ocena" align="center"/>
                 </columns>
                 <rows>
                     <template name="t1">
-                        <row onClick="@command(MoviesVM.CMD_SHOW_AUTHOR, a1=each)" style="cursor: pointer;">
+                        <row style="cursor: pointer;">
                             <label value="@load(each.id)"/>
                             <label value="@load(each.name)"/>
                             <label value="@load(each.production_date)"/>
@@ -41,9 +41,9 @@
                 </rows>
             </grid>
         </vbox>
-        <button label="Submit" onClick="@command(MoviesVM.CMDX)"/>
+<!--        <button label="Dodaj nowy film" onClick="@command(MoviesVM.CMDX)"/>-->
+        <a href="/z/newMovie" label="Dodaj nowy film" />
 
-        <!-- -->
         <a href="/" label="Start page"/>
 
     </vlayout>

@@ -1,0 +1,72 @@
+<?import com.example.p2.viewmodel.MoviesVM?>
+        <?link rel="stylesheet" type="text/css" href="/css/main.css"?>
+        <?link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"?>
+        <?script type="text/javascript" charset="UTF-8" src="/webjars/jquery/jquery.min.js" defer="true" ?>
+        <?script type="text/javascript" charset="UTF-8" src="/webjars/bootstrap/js/bootstrap.min.js" defer="true"?>
+
+
+
+<zk xmlns:x="http://www.w3.org/1999/xhtml">
+    <style>
+        .tag { border: 1px solid black; border-radius: .25rem; background-color: green; color: black;
+        padding: .125rem .5rem; display: inline-block; margin: 2px 2px; }
+        .big { font-weight: 400; font-size: 32pt; margin: 3rem .5rem 1rem .5rem; display: inline-block; }
+        .mid { font-weight: 200; font-size: 18pt; margin: 3rem .5rem 1rem .5rem; display: inline-block; }
+
+        .display-ib { display: inline-block; }
+        .grid1 { margin: .5rem 0 1rem 0; }
+        .labels { font-size: .9rem; color: #404040; }
+        .pad { padding: 1rem 0 2rem 0; }
+        .codeBlue > z-label { font-size: 2rem; color: blue !important; }
+    </style>
+    <include src="~./components/menu.zul" />
+
+    <vlayout spacing="0" sclass="mainCol" style="text-align: center;"
+             viewModel="@id('vm') @init('MoviesVM')">
+        <label value="Dodaj nowy film" sclass="big"/>
+        <vbox sclass="bg1 pad" align="center" pack="center" hflex="1">
+
+            <grid width="70rem" sclass="grid1">
+                <columns>
+                    <column width="220px" align="right"/>
+                    <column width="350px" align="left"/>
+                    <column hflex="1" align="left"/>
+                </columns>
+                <rows>
+                    <row><!-- First name -->
+                        <label value="Nazwa" sclass="labels"/>
+                        <textbox hflex="1"
+                                 value="@bind(vm.newMovie.name)"/>
+                        <label value="Wprowadź tytuł filmu" sclass="info"/></row>
+                    <row><!-- Last name -->
+                        <label value="Data produkcji" sclass="labels"/>
+                        <intbox readonly="false" hflex="1"
+                                 value="@bind(vm.newMovie.production_date)"/>
+                        <label value="Podaj date produkcji" sclass="info"/></row>
+                    <row><!-- Birthdate -->
+                        <label value="Reżyser" sclass="labels"/>
+                        <textbox hflex="1"
+                                 value="@bind(vm.newMovie.director)"/>
+                        <label value="Podaj reżysera" sclass="info"/></row>
+                    <row><!-- Email -->
+                        <label value="Budżet" sclass="labels"/><!-- No empty, matching regex pattern (see: https://regex101.com) -->
+                        <textbox value="@bind(vm.newMovie.budget)"/>
+                        <label value="Podaj budżet produkcji" sclass="info"/></row>
+                    <row><!-- Phone -->
+                        <label value="Boxoffice" sclass="labels"/><!-- matching regex pattern (see: https://regex101.com) -->
+                        <textbox value="@bind(vm.newMovie.boxoffice)"/>
+                        <label value="Podaj boxoffice" sclass="info"/></row>
+                    <row><!-- ORCID -->
+                        <label value="Ocena" sclass="labels"/><!-- matching regex pattern (see: https://regex101.com) -->
+                        <textbox value="@bind(vm.newMovie.score)"/>
+                        <label value="" sclass="info"/></row>
+                </rows>
+            </grid>
+            <button label="Dodaj" onClick="@command(MoviesVM.CMD_SUBMIT, a1=self)" autodisable="self"/>
+        </vbox>
+
+        <!-- -->
+        <a href="/" label="Start page"/>
+    </vlayout>
+
+</zk>

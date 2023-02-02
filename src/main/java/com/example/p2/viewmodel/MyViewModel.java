@@ -145,6 +145,7 @@ public class MyViewModel {
         }
 
         newAuthor = authorRepository.saveAndFlush(newAuthor); // Persist entity in the DB
+
         showInfo("New author's id: " + newAuthor.getId());
         System.out.println(newAuthor);
         newAuthor = new Author(); // Create a new object for another one
