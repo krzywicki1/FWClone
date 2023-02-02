@@ -7,11 +7,40 @@
 
 
 <zk xmlns:x="http://www.w3.org/1999/xhtml">
+    <include src="~./components/menu.zul" />
     <vlayout spacing="0" sclass="mainCol" style="text-align: center;"
              viewModel="@id('vm') @init('MoviesVM')">
         <label value="Filmy" sclass="big"/>
         <label value="Lista filmów" sclass="mid"/>
 
+        <vbox sclass="bg1 pad" align="center" pack="center" hflex="1">
+
+            <grid width="80%" sclass="grid1"
+                  model="@load(vm.movies) @template('t1')">
+                <columns>
+                    <column width="4rem" label="Id" align="center"/>
+                    <column width="min" label="Name." align="center"/>
+                    <column width="min" label="Production" align="center"/>
+                    <column width="min" label="Director" align="center"/>
+                    <column width="min" label="Budget" align="center"/>
+                    <column width="min" label="Boxoffice" align="center"/>
+                    <column width="min" label="Score" align="center"/>
+                </columns>
+                <rows>
+                    <template name="t1">
+                        <row onClick="@command(MoviesVM.CMD_SHOW_AUTHOR, a1=each)" style="cursor: pointer;">
+                            <label value="@load(each.id)"/>
+                            <label value="@load(each.name)"/>
+                            <label value="@load(each.production_date)"/>
+                            <label value="@load(each.director)"/>
+                            <label value="@load(each.budget)"/>
+                            <label value="@load(each.boxoffice)"/>
+                            <label value="@load(each.score)"/>
+                        </row>
+                    </template>
+                </rows>
+            </grid>
+        </vbox>
         <button label="Submit" onClick="@command(MoviesVM.CMDX)"/>
 
         <!-- -->
