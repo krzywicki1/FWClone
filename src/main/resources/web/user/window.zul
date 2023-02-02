@@ -1,5 +1,5 @@
 <window id="win" title="Account details" border="normal" width="760px"
-        viewModel="@id('vm') @init('com.example.p2.viewmodel.MyViewModel')"
+        viewModel="@id('vm') @init('com.example.p2.viewmodel.MoviesVM"
         position="center,center" closable="true">
     <vlayout>
 
@@ -9,32 +9,26 @@
                 <column hflex="1" align="left"/>
             </columns>
             <rows>
-                <row><!-- Salutation -->
+                <row><!-- Name -->
                     <label value="Name" sclass="labels"/>
                     <hlayout>
-                        <label unless="${vm.salutationNone}" style="text-transform: capitalize;"
-                               value="${vm.salutationLabel(vm.author.salutation)}"/>
-                        <label value="${vm.author.firstName}" style="font-weight: bold;"/>
-                        <label value="${vm.author.lastName}" style="font-weight: bold;"/>
+                        <label value="${vm.movies.name}" style="font-weight: bold;"/>
                     </hlayout></row>
-                <row><!-- Birthdate -->
-                    <label value="Birthdate" sclass="labels"/>
-                    <!-- Custom variable 'age' created and computed once, then reused multiple times -->
-                    <custom-attributes age="${vm.ageInYears(vm.author.birthdate)}"/>
-                    <!-- like in the case below: 1) as a standard value, 2) as a param in conditional expression
-                      eq = equals = '==', gt = greater than = '>' lt = 'less than' = '<'
-                      empty = '== null or isEmpty()', not empty = ! empty
-                      -->
-                    <label>${vm.author.birthdate} (${age} ${age eq 1 ? 'year':'years'} old)</label></row>
+                <row>
+                    <label value="Production" sclass="labels"/>
+                    <label value="${vm.movies.production_date}"></label></row>
                 <row><!-- Email -->
-                    <label value="Email" sclass="labels"/>
-                    <label value="${vm.author.email}"/></row>
-                <row if="${not empty vm.author.phone}"><!-- Phone -->
-                    <label value="Phone" sclass="labels"/>
-                    <label value="${vm.author.phone}"/></row>
-                <row unless="${empty vm.author.orcid}"><!-- ORCID -->
+                    <label value="Director" sclass="labels"/>
+                    <label value="${vm.movies.director}"/></row>
+                <row if="${not empty vm.movies.budget}"><!-- Phone -->
+                    <label value="Budget" sclass="labels"/>
+                    <label value="${vm.movies.budget}"/></row>
+                <row unless="${empty vm.movies.boxoffice}"><!-- ORCID -->
                     <label value="ORCID id" sclass="labels"/>
-                    <label value="${vm.author.orcid}"/></row>
+                    <label value="${vm.movies.boxoffice}"/></row>
+                <row unless="${empty vm.movies.score}"><!-- ORCID -->
+                    <label value="Score" sclass="labels"/>
+                    <label value="${vm.movies.score}"/></row>
             </rows>
         </grid>
 
