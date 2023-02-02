@@ -2,6 +2,7 @@ package com.example.p2.viewmodel;
 
 import com.example.p2.model.Author;
 import com.example.p2.repository.AuthorRepository;
+import com.example.p2.repository.MovieRepository;
 import com.ns.util.En;
 import lombok.extern.slf4j.Slf4j;
 import org.zkoss.bind.BindUtils;

@@ -1,9 +1,21 @@
-<?import com.example.p2.viewmodel.MyViewModel?>
+<?import com.example.p2.viewmodel.MoviesVM?>
+<?link rel="stylesheet" type="text/css" href="/css/main.css"?>
+<?link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"?>
+<?script type="text/javascript" charset="UTF-8" src="/webjars/jquery/jquery.min.js" defer="true" ?>
+<?script type="text/javascript" charset="UTF-8" src="/webjars/bootstrap/js/bootstrap.min.js" defer="true"?>
 
-<zk>
-    <include src="~./components/menu.zul" />
-    <div>movies</div>
 
 
+<zk xmlns:x="http://www.w3.org/1999/xhtml">
+    <vlayout spacing="0" sclass="mainCol" style="text-align: center;"
+             viewModel="@id('vm') @init('MoviesVM')">
+        <label value="Filmy" sclass="big"/>
+        <label value="Lista filmów" sclass="mid"/>
 
+        <button label="Submit" onClick="@command(MoviesVM.CMDX)"/>
+
+        <!-- -->
+        <a href="/" label="Start page"/>
+
+    </vlayout>
 </zk>
