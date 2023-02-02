@@ -1,0 +1,104 @@
+<zk>
+    <div>
+        <div sclass="header"><a href="/" sclass="logo">
+            <span>filmweb.pl</span>
+        </a>
+        <textbox type="text" sclass="search" placeholder="Szukaj filmów, seriali, gier, postaci i światów"></textbox>
+        </div>
+        <menubar sclass="menu">
+            <menuitem label="FILMY" onClick="alert(self.label)" />
+            <menuitem label="SERIALE" onClick="alert(self.label)" />
+            <menuitem label="GRY" onClick="alert(self.label)" />
+            <menuitem label="RANKINGI" onClick="alert(self.label)" />
+            <menuitem label="REPERTUAR KIN" onClick="alert(self.label)" />
+            <menuitem label="VOD" onClick="alert(self.label)" />
+            <menuitem label="PROGRAM TV" onClick="alert(self.label)" />
+            <menuitem label="MÓJ FILMWEB" onClick="alert(self.label)" />
+        </menubar>
+
+    </div>
+    <style>
+        .menu {
+            background-color: black;
+            color: white;
+            border: 0px;
+
+        }
+        .menu ul {
+        margin-left: 5rem;
+        margin-right: 5rem;
+        display: flex;
+        justify-content: space-between;
+        }
+
+        .z-menu-item-body {
+        padding: 5px 2px;
+        background-color: black;
+
+        }
+
+        .z-menuitem-content{
+        background-color: black !important;
+        color: white;
+        }
+        .z-menuitem-content:hover{
+        background-color: grey !important;
+        color: red;
+        }
+        .cont {
+
+        z-index: 4;
+        width: 29.1rem;
+        max-width: 100%;
+        min-height: 32.375rem;
+        max-height: 37.5rem;
+        padding: 2rem;
+        padding-top: 2rem;
+        background: #ffffff;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 4rem;
+
+        }
+        body {padding: 0 0;background-color:#222e50;}
+        .header {
+        display: flex;
+        background: black;
+        position: sticky;
+        width: 100%;
+        height: 3.5rem;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: .5rem;
+        z-index: 11;
+        }
+        .logo{background: url(https://fwcdn.pl/front/assets/filmweb-logo-ua.ef98794c.svg) left center no-repeat;
+        background-clip: border-box;
+
+        width: 8rem;
+        height: 2rem;
+        background-size: contain;
+        background-position-y: 50%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        text-indent: -10rem;
+
+        }
+        .search {
+        display: flex;
+        justify-content: flex-end;
+        width: 700px;
+
+        }
+
+        .container { text-align:center; margin: 50px 100px; }
+
+        .container .z-panel-embedded-cnt { padding:0; }
+
+        .txb { border: none; }
+
+    </style>
+
+
+</zk>
