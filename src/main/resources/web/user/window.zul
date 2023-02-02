@@ -28,7 +28,7 @@
                     <label value="${vm.movies.boxoffice}"/></row>
                 <row unless="${empty vm.movies.score}"><!-- ORCID -->
                     <label value="Score" sclass="labels"/>
-                    <label value="${vm.movies.score}"/></row>
+                    <label />${vm.movies.score}/10</row>
             </rows>
         </grid>
 
