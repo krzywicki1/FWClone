@@ -2,6 +2,10 @@
 -- H2 DML Script
 ---------------------------------------------------------------------------------------------------------------------
 INSERT INTO movies (name, production_date, director, budget, boxoffice, score)
-VALUES ('Mulholland Drive', 2001, 'David Lynch', 15000000, 20000000, 8);
+VALUES ('Mulholland Drive', 2001, 'David Lynch', 15000000, 20000000, 8),
+('Zagubiona autostrada', 1997, 'David Lynch', 60000, 270000, 7),
+('Climax', 2018, 'Gaspar Noe', 20000, 2000000, 7),
+('Barton Fink', 1991, 'Ethan Coen', 3000000, 6000000, 8),
+('Bal2011', 2011, 'Olcia Olcia', 300, 23, 10);
 
 ------------------------------------------------------------------------------------------------------------------------
