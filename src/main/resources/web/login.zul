@@ -1,0 +1,50 @@
+<?import com.example.p2.viewmodel.MyViewModel?>
+
+<zk>
+    <include src="~./components/menu.zul" />
+    <div sclass="form login-form">
+        <div sclass="col">
+            <span>Logowanie</span>
+            <textbox placeholder="Nazwa użytkownika lub email" />
+            <textbox placeholder="Hasło" />
+            <div>Pamiętaj mnie</div>
+            <div sclass="btn btn-large"> Zaloguj się </div>
+            <div sclass="form-split"><span>Nie pamiętasz hasła</span><div sclass="btn"> Resetuj hasło </div></div>
+            <div sclass="btn btn-large"> Załóż nowe konto </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .form{
+            width: 29.1rem;
+            max-width: 100%;
+            min-height: 32.375rem;
+            padding: 2rem;
+            padding-top: 2rem;
+            background: #ffffff;
+            margin: 0 auto;
+            margin-top: 4rem;
+        }
+        .col{
+            display: flex;
+            flex-direction: column;
+        }
+        .btn{
+            text-align: center;
+            color: white;
+            background-color: #f5c000;
+            padding: 1rem;
+        }
+        .btn-large{
+            width: 100%;
+        }
+        .form-split{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+    </style>
+</zk>
