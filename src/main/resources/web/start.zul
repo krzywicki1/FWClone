@@ -1,7 +1,7 @@
 <?import com.example.p2.viewmodel.MyViewModel?>
 
 <zk>
-    <include src="~./menu.zul" />
+    <include src="~./components/menu.zul" />
     <div sclass="cont">Zaloguj sie</div>
 
 
