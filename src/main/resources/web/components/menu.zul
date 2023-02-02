@@ -7,13 +7,13 @@
         </div>
         <menubar sclass="menu">
             <menuitem label="FILMY" href="/z/movies" />
-            <menuitem label="SERIALE" onClick="alert(self.label)" />
-            <menuitem label="GRY" onClick="alert(self.label)" />
-            <menuitem label="RANKINGI" onClick="alert(self.label)" />
-            <menuitem label="REPERTUAR KIN" onClick="alert(self.label)" />
-            <menuitem label="VOD" onClick="alert(self.label)" />
-            <menuitem label="PROGRAM TV" onClick="alert(self.label)" />
-            <menuitem label="MÓJ FILMWEB" onClick="alert(self.label)" />
+            <menuitem label="SERIALE"  href="/z/tv_series" />
+            <menuitem label="GRY"  href="/z/games" />
+            <menuitem label="RANKINGI"  href="/z/top" />
+            <menuitem label="REPERTUAR KIN"  href="/z/cinemas" />
+            <menuitem label="VOD"  href="/z/vod" />
+            <menuitem label="PROGRAM TV"  href="/z/tv" />
+            <menuitem label="MÓJ FILMWEB"  href="/z/my_filmweb" />
         </menubar>
 
     </div>
@@ -97,6 +97,21 @@
         .container .z-panel-embedded-cnt { padding:0; }
 
         .txb { border: none; }
+        .title {
+
+        z-index: 4;
+        width: 29.1rem;
+        max-width: 100%;
+        min-height: 32.375rem;
+        max-height: 37.5rem;
+        padding: 2rem;
+        padding-top: 2rem;
+        background: #ffffff;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 4rem;
+
+        }
 
     </style>
 

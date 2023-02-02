@@ -1,0 +1,9 @@
+<?import com.example.p2.viewmodel.MyViewModel?>
+
+<zk>
+    <include src="~./components/menu.zul" />
+    <div sclass="title">VOD</div>
+
+
+
+</zk>
