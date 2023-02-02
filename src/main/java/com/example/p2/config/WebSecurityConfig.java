@@ -27,9 +27,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .regexMatchers(HttpMethod.GET, REMOVE_DESKTOP_REGEX).permitAll() // allow desktop cleanup
                     .requestMatchers(req -> "rmDesktop".equals(req.getParameter("cmd_0"))).permitAll() // allow desktop cleanup from ZATS
                     .mvcMatchers("/", "/login", "/logout").permitAll()
+                    .mvcMatchers("/movies", "/movies/**").permitAll()
                     .mvcMatchers("/user/**").hasRole("USER")
                     .mvcMatchers("/admin/**", "/h2-console").hasRole("ADMIN")
-                    .anyRequest().authenticated()
+                    .anyRequest().permitAll()
                     .and()
                 .formLogin().and()
 //              .loginPage("/login").defaultSuccessUrl("/secure/main").and()
