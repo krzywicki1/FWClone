@@ -1,0 +1,11 @@
+/* Main CSS */
+.red { color: red; }
+.c1 { color: #07cd00; }
+.c2 { color: #d4b400; }
+.c3 { color: #004fcc; }
+
+.bg1 { background-color: #f0f0f0; }
+
+.mainCol { padding: 0 6rem 2rem 6rem; }
+
+.info { font-size: .8rem; font-style: italic; color: cadetblue; }

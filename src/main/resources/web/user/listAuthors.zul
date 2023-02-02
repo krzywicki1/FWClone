@@ -1,0 +1,58 @@
+<?import com.example.p2.viewmodel.MyViewModel?>
+<?link rel="stylesheet" type="text/css" href="/css/main.css"?>
+<zk xmlns:n="http://www.w3.org/1999/xhtml">
+    <style>
+        .tag { border: 1px solid black; border-radius: .25rem; background-color: yellow; color: black; padding: .125rem
+        .5rem; display: inline-block; margin: 2px 2px; }
+        .big { font-weight: 400; font-size: 32pt; margin: 3rem .5rem 1rem .5rem; display: inline-block; }
+        .mid { font-weight: 200; font-size: 18pt; margin: 3rem .5rem 1rem .5rem; display: inline-block; }
+
+        .display-ib { display: inline-block; }
+        .grid1 { margin: .5rem 0 1rem 0; }
+        .labels { font-size: .9rem; color: #404040; }
+        .pad { padding: 1rem 0 2rem 0; }
+        .block { font-size: 80%; text-transform: capitalize; }
+    </style>
+
+    <vlayout spacing="0" sclass="mainCol" style="text-align: center;"
+             viewModel="@id('vm') @init('MyViewModel')">
+        <label value="Wilson Publishing Ltd." sclass="big"/>
+        <label value="List of author accounts" sclass="mid"/>
+
+        <vbox sclass="bg1 pad" align="center" pack="center" hflex="1">
+
+            <grid width="80%" sclass="grid1"
+                  model="@load(vm.authors) @template('t1')">
+                <columns>
+                    <column width="4rem" label="Id" align="center"/>
+                    <column width="min" label="Sal." align="center"/>
+                    <column width="min" label="First name" align="center"/>
+                    <column width="min" label="Last name" align="center"/>
+                    <column width="min" label="Email" align="center"/>
+                    <column width="min" label="Phone number" align="center"/>
+                    <column width="min" label="ORCID id" align="center"/>
+                    <column width="min" label="Status" align="center"/>
+                </columns>
+                <rows>
+                    <template name="t1">
+                        <row onClick="@command(MyViewModel.CMD_SHOW_AUTHOR, a1=each)" style="cursor: pointer;">
+                            <label value="@load(each.id)"/>
+                            <label value="@load(vm.salutationLabel(each.salutation))" sclass="block tag"/>
+                            <label value="@load(each.firstName)"/>
+                            <label value="@load(each.lastName)"/>
+                            <label value="@load(each.email)"/>
+                            <label value="@load(each.phone)"/>
+                            <label value="@load(each.orcid)"/>
+                            <label value="@load(each.status)"/>
+                        </row>
+                    </template>
+                </rows>
+            </grid>
+        </vbox>
+
+        <!-- -->
+        <a href="/" label="Start page"/>
+        <a href="/z/user/newAuthor" label="Create new author account"/>
+
+    </vlayout>
+</zk>

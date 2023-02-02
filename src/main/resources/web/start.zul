@@ -1,0 +1,41 @@
+<?link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"?>
+<?link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"?>
+<?link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"?>
+<?link rel="manifest" href="/favicon/site.webmanifest"?>
+<?link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5"?>
+<?meta name="msapplication-TileColor" content="#da532c"?>
+<?meta name="theme-color" content="#ffffff"?>
+
+<?link rel="stylesheet" type="text/css" href="/css/main.css"?>
+<?link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"?>
+<?script type="text/javascript" charset="UTF-8" src="/webjars/jquery/jquery.min.js" defer="true" ?>
+<?script type="text/javascript" charset="UTF-8" src="/webjars/bootstrap/js/bootstrap.min.js" defer="true"?>
+
+<zk xmlns:x="http://www.w3.org/1999/xhtml">
+    <style>
+        .codeBlue > z-label { font-size: 2rem; color: blue !important; }
+        .transparent { background-color: rgba(233, 243, 245, 0.74); }
+        body { background-image: url('/images/house.jpg');
+            background-repeat: no-repeat; background-attachment: fixed; background-size: cover;
+        }
+        .mainBox { margin: 2rem 1rem 1rem 4rem; padding: 1rem 2rem 1.5rem 3rem; }
+    </style>
+    <separator width="10rem"/>
+<!--    <window title="Spring Boot + ZK Framework" border="normal" sclass="transparent" position="center,top"-->
+<!--            sizable="true" maximizable="true" hflex="2">-->
+        <vlayout sclass="mainBox transparent">
+            <a href="/logout" style="display: block; float:right; border: 1px solid black;">Logout</a>
+            <label sclass="h1">Welcome!</label>
+            <hlayout>You are using ZK version <x:span class="fw-bold">${session.webApp.version}</x:span></hlayout>
+            <separator width="2rem"/>
+            <label sclass="h2">Links:</label>
+            <a href="/z/user/listAuthors">List of author accounts</a>
+            <a href="/user/headers">User headers</a>
+            <a href="/admin/headers">Admin headers</a>
+            <a href="/unauthorized">Throw unauthorized</a>
+            <a href="~./mvvm.zul">MVVM Demo</a>
+            <a href="/z/mvvm">MVVM Demo (with '/z/**' mapper link)</a>
+        </vlayout>
+<!--    </window>-->
+    <separator width="10rem"/>
+</zk>

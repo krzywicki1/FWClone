@@ -1,0 +1,89 @@
+<?import com.example.p2.viewmodel.MyViewModel?>
+<?link rel="stylesheet" type="text/css" href="/css/main.css"?>
+<?link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"?>
+<?script type="text/javascript" charset="UTF-8" src="/webjars/jquery/jquery.min.js" defer="true" ?>
+<?script type="text/javascript" charset="UTF-8" src="/webjars/bootstrap/js/bootstrap.min.js" defer="true"?>
+
+<zk xmlns:n="http://www.w3.org/1999/xhtml">
+    <style>
+        .tag { border: 1px solid black; border-radius: .25rem; background-color: green; color: black;
+               padding: .125rem .5rem; display: inline-block; margin: 2px 2px; }
+        .big { font-weight: 400; font-size: 32pt; margin: 3rem .5rem 1rem .5rem; display: inline-block; }
+        .mid { font-weight: 200; font-size: 18pt; margin: 3rem .5rem 1rem .5rem; display: inline-block; }
+
+        .display-ib { display: inline-block; }
+        .grid1 { margin: .5rem 0 1rem 0; }
+        .labels { font-size: .9rem; color: #404040; }
+        .pad { padding: 1rem 0 2rem 0; }
+        .codeBlue > z-label { font-size: 2rem; color: blue !important; }
+    </style>
+
+    <vlayout spacing="0" sclass="mainCol" style="text-align: center;"
+             viewModel="@id('vm') @init('MyViewModel')">
+        <label value="Wilson Publishing Ltd." sclass="big"/>
+        <label value="Create a new account" sclass="mid"/>
+        <n:br/>
+        <vbox sclass="bg1 pad" align="center" pack="center" hflex="1">
+
+            <grid width="70rem" sclass="grid1">
+                <columns>
+                    <column width="220px" align="right"/>
+                    <column width="350px" align="left"/>
+                    <column hflex="1" align="left"/>
+                </columns>
+                <rows>
+                    <row spans="1,2"><!-- Salutation -->
+                        <label value="Salutation" sclass="labels"/>
+                        <radiogroup selectedIndex="@bind(vm.newAuthor.salutation)">
+                            <radio width="5rem" sclass="display-ib" label="none" />
+                            <radio width="4rem" sclass="display-ib" label="Mr" />
+                            <radio width="4rem" sclass="display-ib" label="Ms" /></radiogroup></row>
+                    <row><!-- First name -->
+                        <label value="First name" sclass="labels"/>
+                        <textbox placeholder="e.g. John F." hflex="1"
+                                 value="@bind(vm.newAuthor.firstName)"/>
+                        <label value="Please enter your first and/or middle name." sclass="info"/></row>
+                    <row><!-- Last name -->
+                        <label value="Last name" sclass="labels"/>
+                        <textbox placeholder="e.g. Kennedy" hflex="1"
+                                 value="@bind(vm.newAuthor.lastName)"/>
+                        <label value="Please enter your family name" sclass="info"/></row>
+                    <row><!-- Birthdate -->
+                        <label value="Birthdate" sclass="labels"/>
+                        <datebox id="birthdate" hflex="1" format="d MMMM, yyyy" placeholder="9 December, 1992"
+                                 constraint="no future, no today"
+                                 value="@bind(vm.newAuthor.birthdate)"
+                                 onChange="@command(MyViewModel.CMD_DATE_CHANGE, a1=self)"/>
+                        <label value="Please enter your birthdate." sclass="info"/></row>
+                    <row spans="1,2"><!-- Age (a dynamically computed field based on birthdate field above) -->
+                        <label value="Age" sclass="labels"/>
+                        <intbox width="4rem" readonly="true" style="text-align: center;" sclass="codeBlue"
+                                value="@load(vm.ageInYears(not empty birthdate ? birthdate.value : null))" /></row>
+                    <row><!-- Email -->
+                        <label value="Email" sclass="labels"/><!-- No empty, matching regex pattern (see: https://regex101.com) -->
+                        <textbox constraint="no empty,/^[a-zA-Z0-9.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-_]*\.[a-zA-Z]+[a-zA-Z]+$/:Please enter a valid email address."
+                                 hflex="1" placeholder="e.g. jfk@yahoo.com"
+                                 value="@bind(vm.newAuthor.email)"/>
+                        <label value="Must match regex: /^[a-zA-Z0-9.-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-_]*\.[a-zA-Z]+[a-zA-Z]+$/" sclass="info"/></row>
+                    <row><!-- Phone -->
+                        <label value="Phone number" sclass="labels"/><!-- matching regex pattern (see: https://regex101.com) -->
+                        <textbox constraint="/^\+[0-9,-, ]+$/:'Only +|-|0-9|space characters please!'"
+                                 hflex="1" placeholder="e.g. +48 71 3680399"
+                                 value="@bind(vm.newAuthor.phone)"/>
+                        <label value="Must match regex: /^\+[0-9,\-, ]+$/" sclass="info"/></row>
+                    <row><!-- ORCID -->
+                        <label value="ORCID id" sclass="labels"/><!-- matching regex pattern (see: https://regex101.com) -->
+                        <textbox constraint="/^\d{4}-\d{4}-\d{4}-(\d{3}|\d{4})$/:Please enter a valid ORCID id number"
+                                 hflex="1" placeholder="e.g. 0000-1122-3344-0002"
+                                 value="@bind(vm.newAuthor.orcid)"/>
+                        <label value="" sclass="info"/></row>
+                </rows>
+            </grid>
+            <button label="Submit" onClick="@command(MyViewModel.CMD_SUBMIT, a1=self)" autodisable="self"/>
+        </vbox>
+
+        <!-- -->
+        <a href="/" label="Start page"/>
+        <a href="/z/user/listAuthors" label="List of all authors"/>
+    </vlayout>
+</zk>
