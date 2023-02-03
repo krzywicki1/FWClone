@@ -2,7 +2,7 @@
 
 <zk>
     <include src="~./components/menu.zul" />
-    <div sclass="cont">Zaloguj sie</div>
+    <div sclass="cont">Witamy Na FILMWEB</div>
 
 
 
