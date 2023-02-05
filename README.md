@@ -1,6 +1,8 @@
-# filmweb.pl copy for studies
+# filmweb.pl clone for studies
 
-Simple java project. Made for Web Aplication Design
+Simple java project. Made for Web Aplication Design class.
+
+Heavy inspired by polish movie rating website [filmweb](https://www.filmweb.pl/)
 
 ## Description
 
